@@ -1,0 +1,68 @@
+<html>
+<head>  
+	<title>CGPA/SGPA-VISUALIZER</title>
+	<link rel="shortcut icon" href="https://image.flaticon.com/icons/png/128/1490/1490423.png" type="image/x-icon">
+<h1 style="text-align: center;font-family: 'Julius Sans One', sans-serif;" > SGPA/CGPA VISUALLIZER</h1>
+<link href="https://fonts.googleapis.com/css2?family=Antic+Slab&family=Julius+Sans+One&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+<body>
+<p id="demo" style="text-align: center;font-family: 'Julius Sans One', sans-serif;"></p>
+<p id="demo1" style="text-align: center;font-family: 'Julius Sans One', sans-serif;	;"></p>
+</body>
+<script>
+window.onload = function () {
+
+
+
+
+var n=parseInt(prompt("ENTER NO:OF INPUTS"));
+if (parseInt(n)>8 || n<=0){
+	alert("INVALID NO OF SEMESTER");
+}
+else{
+var a=[];
+for (let i=1;i<=n;i++){
+ var marks=prompt("ENTER YOUR SEMESTER "+i+"SGPA/CGPA:")
+ a.push(parseFloat(marks));
+ document.getElementById("demo").innerHTML ="YOUR INPUT :"+a;
+ var per = parseFloat(a[n-1])*9.5;
+ document.getElementById("demo1").innerHTML ="PERCENTAGE:"+per;
+}
+}
+
+
+var chart = new CanvasJS.Chart("chartContainer", {
+	animationEnabled: true,
+	theme: "dark2",
+
+	title:{
+		text: "SGPA/CGPA CHART"
+	},
+	data: [{        
+		type: "line",
+		lineColor:"green",
+      	indexLabelFontSize: 16,
+		dataPoints: [
+			{ x:1,y: a[0] },
+			{ x:2,y: a[1]},
+			{ x:3,y: a[2]},
+			{ x:4,y: a[3] },
+			{ x:5,y: a[4] },
+			{ x:6,y: a[5] },
+			{ x:7,y: a[6] },
+			{ x:8,y: a[7] }
+		]
+	}]
+});
+chart.render();
+
+}
+</script>
+</head>
+<body>
+
+<div  id="chartContainer" style="height: 300px; width: 100%;"></div>
+<script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+</body>
+</html>
+
